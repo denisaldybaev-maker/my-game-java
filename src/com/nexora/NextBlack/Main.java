@@ -13,7 +13,7 @@ public class Main extends JPanel {
                 Main.this,
                 "здесь тебе нужно закрыть жёлтый квадрат\n" +
                         "после этого игра закроется\n" +
-                        "управление нф w,a,s,d\n" +
+                        "управление на w,a,s,d\n" +
                         "к сожалению игра не поддерживает RU раскладку\n" +
                         "переключись на EN раскладку",
                 "правила и пояснение",
@@ -66,10 +66,11 @@ public class Main extends JPanel {
 
     public static void main(String[] args) {
         Main SGame = new Main();
+
         JFrame window = new JFrame("поиск");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600,400);
-        window.add(new Main());
+        window.add(SGame);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         SGame.warning();
