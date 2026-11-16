@@ -8,32 +8,6 @@ import java.util.Random;
 
 public class Main extends JPanel {
     Random random = new Random();
-    public void warning() {
-        JOptionPane.showMessageDialog(
-                Main.this,
-                "здесь тебе нужно закрыть жёлтый квадрат\n" +
-                        "после этого игра закроется\n" +
-                        "управление на w,a,s,d\n" +
-                        "к сожалению игра не поддерживает RU раскладку\n" +
-                        "переключись на EN раскладку\n\n" +
-                        "version 0.4b",
-                "правила и пояснение",
-                JOptionPane.WARNING_MESSAGE
-        );
-    }
-    public void exit() {
-        JOptionPane.showMessageDialog(
-                Main.this,
-                "игра закроется",
-                "предупреждение",
-                JOptionPane.WARNING_MESSAGE
-        );
-    }
-
-    int x = random.nextInt(550);
-    int y = random.nextInt(350);
-    int x1 = 140;
-    int y1 = 140;
 
     public Main() {
         System.out.println(x + ", " + y);
@@ -43,16 +17,52 @@ public class Main extends JPanel {
         addKeyListener(new KeyAdapter() {
            @Override
            public void keyPressed(KeyEvent e) {
-               if (x == x1 && y == y1) { exit(); System.exit(0); }
+               if (x == x1 && y == y1) exit();
                int Key = e.getKeyCode();
                if (Key == KeyEvent.VK_W) y1 -= 1;
                if (Key == KeyEvent.VK_S) y1 += 1;
                if (Key == KeyEvent.VK_A) x1 -= 1;
                if (Key == KeyEvent.VK_D) x1 += 1;
-
+               if (Key == KeyEvent.VK_F12) passkey();
                repaint();
            }
         });
+    }
+
+    public void passkey() {
+        String key = JOptionPane.showInputDialog(null);
+        if (key != null && key.equals("30062006")) {
+            exit();
+        }
+    }
+
+    public void warning() {
+        JOptionPane.showMessageDialog(
+                Main.this,
+                "здесь тебе нужно закрыть жёлтый квадрат\n" +
+                        "после этого игра закроется\n" +
+                        "управление на w,a,s,d\n" +
+                        "к сожалению игра не поддерживает RU раскладку\n" +
+                        "переключись на EN раскладку\n\n" +
+                        "version 1.0b",
+                "правила и пояснение",
+                JOptionPane.WARNING_MESSAGE
+        );
+    }
+
+    int x = random.nextInt(550);
+    int y = random.nextInt(350);
+    int x1 = 140;
+    int y1 = 140;
+
+    public void exit() {
+        JOptionPane.showMessageDialog(
+                Main.this,
+                "игра закроется",
+                "предупреждение",
+                JOptionPane.WARNING_MESSAGE
+        );
+        System.exit(0);
     }
 
     @Override
