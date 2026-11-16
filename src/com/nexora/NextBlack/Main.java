@@ -69,7 +69,7 @@ public class Main extends JPanel {
         JFrame window = new JFrame("поиск");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600,400);
-        window.add(new Main());
+        window.add(SGame);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         SGame.warning();
