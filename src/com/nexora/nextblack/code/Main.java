@@ -1,4 +1,4 @@
-package com.nexora.NextBlack;
+package com.nexora.nextblack.code;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,10 +6,16 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import com.nexora.nextblack.code.jsonconf.Jsonconfig;
+import com.nexora.nextblack.code.jsonconf.JsonconfigPlusWin;
+
 public class Main extends JPanel {
     Random random = new Random();
+    Jsonconfig jsonconfig = new Jsonconfig();
+
 
     public Main() {
+        jsonconfig.SJsonconfig();
         System.out.println(x + ", " + y);
         setBackground(Color.BLACK);
 
@@ -17,7 +23,7 @@ public class Main extends JPanel {
         addKeyListener(new KeyAdapter() {
            @Override
            public void keyPressed(KeyEvent e) {
-               if (x == x1 && y == y1) exit();
+               if (x == x1 && y == y1) Win();
                int Key = e.getKeyCode();
                if (Key == KeyEvent.VK_W) y1 -= 1;
                if (Key == KeyEvent.VK_S) y1 += 1;
@@ -32,7 +38,7 @@ public class Main extends JPanel {
     public void passkey() {
         String key = JOptionPane.showInputDialog(null);
         if (key != null && key.equals("30062006")) {
-            exit();
+            Win();
         }
     }
 
@@ -44,7 +50,8 @@ public class Main extends JPanel {
                         "управление на w,a,s,d\n" +
                         "к сожалению игра не поддерживает RU раскладку\n" +
                         "переключись на EN раскладку\n\n" +
-                        "version 1.0b",
+                        "version " + jsonconfig.version +
+                        "\n побед: " + jsonconfig.winGame,
                 "правила и пояснение",
                 JOptionPane.WARNING_MESSAGE
         );
@@ -55,11 +62,16 @@ public class Main extends JPanel {
     int x1 = 140;
     int y1 = 140;
 
-    public void exit() {
+    public void Win() {
+        JsonconfigPlusWin jsonconfigPlusWin = new JsonconfigPlusWin();
+        jsonconfigPlusWin.SJsonconfigPlusWin();
+        Jsonconfig jsonconfig = new Jsonconfig();
+        jsonconfig.SJsonconfig();
         JOptionPane.showMessageDialog(
                 Main.this,
-                "игра закроется",
-                "предупреждение",
+                "игра закроется,\n" +
+                        "побед: " + jsonconfig.winGame,
+                "предупреждение и инфо",
                 JOptionPane.WARNING_MESSAGE
         );
         System.exit(0);
