@@ -40,7 +40,7 @@ public class Controller extends JPanel {
     public static void SController() {
         com.nexora.nextblack.code.Controller SGame = new com.nexora.nextblack.code.Controller();
 
-        JFrame window = new JFrame("поиск");
+        JFrame window = new JFrame("NextBlack");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600, 400);
         window.add(SGame);
