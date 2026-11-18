@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="jfyjkuy:jar">
+    <output-path>$USER_HOME$/java/мои jar/NextBlack</output-path>
+    <root id="archive" name="jfyjkuy.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$USER_HOME$/Загрузки/GFHGSD/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="jfyjkuy" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/gson-2.15.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
